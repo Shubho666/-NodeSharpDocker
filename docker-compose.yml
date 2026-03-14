@@ -1,0 +1,14 @@
+
+services:
+  sharp-worker:
+    build: .
+    image: sharp-dpi-watcher
+    container_name: sharp-worker
+
+    volumes:
+      - ${INPUT_VOLUME}:/data
+
+    cpus: "${CPU_LIMIT}"
+    mem_limit: "${MEM_LIMIT}"
+
+    restart: unless-stopped
